@@ -1,0 +1,144 @@
+ \documentclass[11pt, openany]{book}
+ \usepackage{xfrac}
+\usepackage[
+	paperheight=9in,
+	paperwidth=6in,
+	margin=.75in,
+	heightrounded,
+	twoside,
+%	bindingoffset=0.25in,
+%	showframe
+]{geometry}
+
+\usepackage{perpage}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{changepage}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage[perpage,para,symbol*]{footmisc}
+\usepackage{hanging}
+\usepackage[font=small,labelfont=bf]{caption}
+
+%%%%%%%%%%%%%
+% Custom Commands %
+%%%%%%%%%%%%%
+\definecolor{deepred}{HTML}{802a1d}
+% Used for first letter of each chapter
+\newcommand{\trans}[1]{\footnote{{#1} -- \scriptsize{TRANS.}}}
+
+\newcommand{\hugered}[1]{{\color{red}\Huge{}\textbf{#1}}}
+
+% Centered Red Subtitle text with spacing
+\newcommand{\subtitle}[2][red]{
+	{
+	\color{#1}
+	\large{}
+	\center
+	\vspace{1cm}
+	\begin{center}
+	{#2}
+	\end{center}
+	\vspace{1cm}
+	}
+}
+
+% Display a centered decorative red cross
+\newcommand{\minicross}{
+	\begin{center}
+		\includegraphics[height=0.4cm]{./Images/Simple_Cross.png}
+	\end{center}
+}
+
+% Create listing in glossary. Param #1 is defined word, Param #2 is definition.
+% 	Also creates a label that can be linked to in footnotes from elsewhere
+\newcommand{\gloss}[2]{
+	\textbf{{#1}}\hspace{1em}{#2}
+}
+
+\newcommand{\chformat}{
+	\titleformat
+		{\chapter} % command
+		[display] % shape
+		{\bfseries\Large} % format
+		{
+			\vspace{-1cm}
+			%Story No. \ \thechapter
+		} % label
+		{0cm} % sep
+		{
+			\vspace{-2cm}
+			\begin{center}
+			{\includegraphics[width=\the\textwidth]{./Images/Chapter_Banner.png}\\
+			\vspace{1.5cm}}
+%			\color{red}
+		} % before-code
+		[
+			\end{center}
+		] % after-code
+}
+
+\newcommand{\bigpicgeometry}{
+	\newgeometry{
+		margin=0in,
+		bmargin=-1.375in,
+		tmargin=-1.5in,
+		rmargin=-0in,
+%		heightrounded,
+		twoside,
+	}
+}
+
+%%%%%%%%%%%%%%%
+% END Custom Commands %
+%%%%%%%%%%%%%%%
+
+% Styles %
+\pretolerance=150
+\setlength{\emergencystretch}{1.5em}
+\tolerance=200
+
+\definecolor{red}{rgb}{.75,0,0}
+\pagestyle{empty}
+\setstretch{1.3}
+\chformat
+%END Chapter Styles
+
+\begin{document}
+\title{The Elder Joseph of Optina}
+
+\input{./Content/Cover}
+\input{./Content/Dedication}
+\input{./Content/Excerpt_Page}
+
+\tableofcontents
+
+%Chapters
+\pagestyle{plain}
+\input{./Content/Forward}
+\input{./Content/Kozelskaya_Vvedenskaya}
+
+% START PART I
+\input{./Content/Part_I_Title}
+% Shift Part 1 chapters over 1 CM in table of contents
+\addtocontents{toc}{\protect\begin{adjustwidth}{1cm}{0cm}}
+\input{./Content/Preface}
+\input{./Content/Introduction}
+\input{./Content/Chapter_1_Life_In_The_World}
+\input{./Content/Chapter_2_Entrance_Into_The_Monastery}
+\input{./Content/Chapter_3_Preparation_For_The_Struggle_Of_Eldership}
+\input{./Content/Chapter_4_The_Eldership_Of_Father_Joseph}
+\input{./Content/Chapter_5_The_Elder_Josephs_Instructions}
+\input{./Content/Chapter_6_The_Spritual_Height_Of_The_Humble_Elder}
+\input{./Content/Chapter_7_Josephs_Appointment_As_Confessor_And_Superior}
+\input{./Content/Chapter_8_The_Illness_And_Repose_Of_The_Elder}
+\addtocontents{toc}{\protect\end{adjustwidth}}%  End
+% END PART I
+
+\input{./Content/Part_II_Complete}
+
+\input{./Content/Appendix_A}
+\input{./Content/Appendix_B}
+\input{./Content/Glossary}
+\end{document}

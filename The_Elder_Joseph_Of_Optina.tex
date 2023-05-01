@@ -28,6 +28,10 @@
 % Used for first letter of each chapter
 \newcommand{\trans}[1]{\footnote{{#1} -- \scriptsize{TRANS.}}}
 
+\newenvironment{longquote}[1]%
+  {\begin{adjustwidth}{2em}{2em}\vspace*{.5em}\textit{#1}\\}
+  {\end{adjustwidth}\vspace*{.5em}}
+
 \newcommand{\hugered}[1]{{\color{red}\Huge{}\textbf{#1}}}
 
 % Centered Red Subtitle text with spacing
